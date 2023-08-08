@@ -7,15 +7,20 @@ def findnewprime(prime):
     z = prime[-1] - 1
     x = 0
     y = 1
-    while 1 == 1:          
+    while True:
         while y < len(prime): 
             while x < prime[-y]:
-                if(x * prime[-y] == z):                   
-                    x += 1
-                elif(z not in prime):               
-                    return(z)
+                if(x * prime[-y] == z):
+                    x = 0
+                    y = 0
+                    z += 1
+                print(x * prime[-y])
+                x += 1
             y += 1
-            x = 0
+            if(x * prime[-y] == z and z not in prime):
+                return(z)         
+        if(x * prime[-y] == z and z not in prime):
+                return(z)
         z += 1
         x = 0
         y = 1
